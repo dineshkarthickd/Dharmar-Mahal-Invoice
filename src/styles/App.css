@@ -6,12 +6,6 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Poppins', sans-serif;
-  background: #ecf0f1;
-  line-height: 1.6;
-}
-
 .App {
   min-height: 100vh;
 }
