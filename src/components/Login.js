@@ -25,120 +25,75 @@ const Login = ({ onLogin }) => {
   };
 
   return (
-    <div className="login-container">
-      <div className="login-background">
-        <div className="floating-shapes">
-          <div className="shape shape-1"></div>
-          <div className="shape shape-2"></div>
-          <div className="shape shape-3"></div>
-          <div className="shape shape-4"></div>
+    <div className="login-viewer">
+      {/* Left Side: Cinematic Art */}
+      <div className="login-hero">
+        <div className="hero-overlay">
+          <motion.div 
+            className="hero-content"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
+            <h2>The Horizon of</h2>
+            <h1>Elegance</h1>
+          </motion.div>
         </div>
       </div>
 
-      <motion.div 
-        className="login-box"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
+      {/* Right Side: Clean Form */}
+      <div className="login-panel">
         <motion.div 
-          className="logo-container"
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+          className="login-form-wrapper"
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <div className="logo-3d">
-            <div className="cube">
-              <div className="face front">D</div>
-              <div className="face back">M</div>
-              <div className="face right">H</div>
-              <div className="face left">A</div>
-              <div className="face top">R</div>
-              <div className="face bottom">A</div>
-            </div>
+          <div className="brand-header">
+            <h1 className="brand-title">DHARMAR MAHAL</h1>
+            <p className="brand-subtitle">WELCOME TO EXQUISITE EVENTS</p>
           </div>
-          <h1>DHARMAR MAHAL</h1>
-          <p>Invoice Management System</p>
-        </motion.div>
 
-        <motion.form 
-          onSubmit={handleSubmit} 
-          className="login-form"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-        >
-          <motion.div 
-            className="input-group"
-            whileFocus={{ scale: 1.02 }}
-          >
-            <div className="input-container">
+          <form onSubmit={handleSubmit} className="premium-form">
+            <div className="input-field">
+              <label>Username</label>
               <input
                 type="text"
-                placeholder="Username"
+                placeholder="Enter your username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 required
-                className="login-input"
               />
-              <span className="input-icon">👤</span>
             </div>
-          </motion.div>
-          
-          <motion.div 
-            className="input-group"
-            whileFocus={{ scale: 1.02 }}
-          >
-            <div className="input-container">
+            
+            <div className="input-field">
+              <label>Password</label>
               <input
                 type="password"
-                placeholder="Password"
+                placeholder="••••••••"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="login-input"
               />
-              <span className="input-icon">🔒</span>
             </div>
-          </motion.div>
-          
-          {error && (
-            <motion.div 
-              className="error-message"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
+            
+            {error && <div className="error-badge">{error}</div>}
+            
+            <button 
+              type="submit" 
+              className="action-btn"
+              disabled={isLoading}
             >
-              {error}
-            </motion.div>
-          )}
-          
-          <motion.button 
-            type="submit" 
-            className="login-btn"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            disabled={isLoading}
-          >
-            {isLoading ? (
-              <div className="loading-spinner">
-                <div className="spinner"></div>
-                Authenticating...
-              </div>
-            ) : (
-              'Login to System'
-            )}
-          </motion.button>
-        </motion.form>
+              {isLoading ? 'AUTHENTICATING...' : 'LOGIN TO SYSTEM'}
+            </button>
+          </form>
 
-        <motion.div 
-          className="login-footer"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8 }}
-        >
-          <p>Secure Access Portal</p>
+          <div className="login-panel-footer">
+            <p>Protected by Dharmar Mahal Security</p>
+            <p className="dev-credit">Designed & Developed by Dinesh Karthick Durgadas</p>
+          </div>
         </motion.div>
-      </motion.div>
+      </div>
     </div>
   );
 };

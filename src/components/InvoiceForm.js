@@ -9,7 +9,7 @@ const InvoiceForm = () => {
     clientName: '',
     organization: '',
     location: '',
-    date: new Date().toLocaleDateString('en-GB'),
+    date: new Date().toISOString().split('T')[0], // Default to today's date for picker
   });
 
   const [services, setServices] = useState([]);
@@ -23,9 +23,13 @@ const InvoiceForm = () => {
       }, 0);
     };
 
+    const capitalizeWords = (str) => {
+      return str.replace(/\b\w/g, l => l.toUpperCase());
+    };
+
     const total = calculateTotal();
     setTotalAmount(total);
-    setAmountInWords(numberToWords(total));
+    setAmountInWords(capitalizeWords(numberToWords(total)));
   }, [services]);
 
   const handleInputChange = (e) => {
@@ -59,7 +63,7 @@ const InvoiceForm = () => {
       clientName: '',
       organization: '',
       location: '',
-      date: new Date().toLocaleDateString('en-GB'),
+      date: new Date().toISOString().split('T')[0],
     });
     setServices([]);
   };
@@ -79,7 +83,7 @@ const InvoiceForm = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          🗑️ Reset Form
+          RESET FORM
         </motion.button>
       </div>
 
@@ -93,13 +97,12 @@ const InvoiceForm = () => {
           <h2>📝 Enter Invoice Details</h2>
           
           <div className="form-group">
-            <label>📅 Date:</label>
+            <label>📅 Select Date:</label>
             <input
-              type="text"
+              type="date"
               name="date"
               value={invoiceData.date}
               onChange={handleInputChange}
-              placeholder="DD.MM.YYYY"
             />
           </div>
           
@@ -145,7 +148,7 @@ const InvoiceForm = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                ➕ Add Field
+                ADD FIELD
               </motion.button>
             </div>
 
@@ -183,7 +186,7 @@ const InvoiceForm = () => {
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                     >
-                      ❌
+                      X
                     </motion.button>
                   </div>
                 </motion.div>
@@ -192,7 +195,7 @@ const InvoiceForm = () => {
 
             {services.length === 0 && (
               <div className="no-services">
-                <p>No services added yet. Click "Add Field" to add services.</p>
+                <p>No services added yet. Click "ADD FIELD" to add services.</p>
               </div>
             )}
           </div>

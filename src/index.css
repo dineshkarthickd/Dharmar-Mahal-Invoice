@@ -1,10 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  /* Cinematic Sunset Palette */
+  --midnight-navy: #1a2b43;
+  --slate-blue: #355c7d;
+  --muted-purple: #6c5b7b;
+  --mauve-rose: #c06c84;
+  --coral-pink: #f67280;
+  
+  /* Text & Surfaces */
+  --off-white: #fdfdfd;
+  --text-dark: #2d3436;
+  --text-muted: #636e72;
+  
+  /* Modern Shadows */
+  --shadow-premium: 0 20px 40px rgba(0, 0, 0, 0.08);
+  --shadow-glow: 0 0 25px rgba(246, 114, 128, 0.2);
+
+  /* Fonts */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--midnight-navy);
+  color: var(--text-dark);
 }
 
 code {
