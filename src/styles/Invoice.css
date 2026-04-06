@@ -373,5 +373,85 @@
 @media (max-width: 1200px) {
   .invoice-content {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .preview-section {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .invoice-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 0 20px;
+    gap: 15px;
+  }
+
+  .invoice-header h1 {
+    font-size: 24px;
+    letter-spacing: 0.05em;
+  }
+
+  .form-section {
+    padding: 24px 15px;
+    border-radius: 12px;
+  }
+
+  /* Responsive Service Fields */
+  .service-inputs {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .service-amount {
+    width: 100%;
+  }
+
+  .remove-service-btn {
+    width: 100%;
+    border-radius: 8px;
+    height: 48px; /* Touch friendly */
+    order: 3;
+  }
+
+  /* Smart Scale A4 Preview */
+  .preview-scaler {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    /* This height calculation is based on the scaled A4 height (210mm wide scaled to screen width) */
+    /* Using aspect ratio approach */
+    aspect-ratio: 210 / 297;
+  }
+
+  .a4-page {
+    transform-origin: top center;
+    /* Scale logic: scale(calc(containerWidth / 210mm)) */
+    /* Handled via simple CSS for common phone widths */
+    transform: scale(0.45); /* Base scale for typical mobile widths */
+    margin: 0;
+    position: absolute;
+    top: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .invoice-header h1 {
+    font-size: 20px;
+  }
+  
+  .a4-page {
+    transform: scale(0.4); /* Scaled even more for very small phones */
+  }
+}
+
+/* Custom Scaler for precise fits if possible */
+@media (min-width: 481px) and (max-width: 767px) {
+  .a4-page {
+    transform: scale(0.65);
   }
 }

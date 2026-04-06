@@ -32,7 +32,8 @@ const InvoicePreview = ({ invoiceData, services, totalAmount, amountInWords }) =
 
   return (
     <div className="preview-container">
-      <div className="a4-page" ref={invoiceRef}>
+      <div className="preview-scaler">
+        <div className="a4-page" ref={invoiceRef}>
         <div className="invoice-top-section">
           {/* Header with Image - Stretched to full width */}
           <div className="invoice-header-preview">
@@ -121,6 +122,7 @@ const InvoicePreview = ({ invoiceData, services, totalAmount, amountInWords }) =
             />
             <p className="dev-credit-pdf">Designed & Developed by Dinesh Karthick Durgadas</p>
           </div>
+        </div>
         </div>
       </div>
 
