@@ -33,7 +33,7 @@ const InvoicePreview = ({ invoiceData, services, totalAmount, amountInWords }) =
   return (
     <div className="preview-container">
       <div className="preview-scaler">
-        <div className="a4-page" ref={invoiceRef}>
+        <div className="a4-page" ref={invoiceRef} id="invoice-capture">
         <div className="invoice-top-section">
           {/* Header with Image - Stretched to full width */}
           <div className="invoice-header-preview">
