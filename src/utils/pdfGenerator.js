@@ -20,7 +20,7 @@ export const numberToWords = (num) => {
   return inWords(num).trim() + ' only';
 };
 
-export const generateInvoicePDF = async (elementRef, name) => {
+export const generateInvoicePDF = async (elementRef, name, date) => {
   const element = elementRef.current;
   
   // Standard A4 dimensions in pixels at 96 DPI
@@ -50,5 +50,7 @@ export const generateInvoicePDF = async (elementRef, name) => {
   const pdfHeight = pdf.internal.pageSize.getHeight();
 
   pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-  pdf.save(`Invoice_${name.replace(/\s+/g, '_')}.pdf`);
+  const formattedName = name ? name.replace(/\s+/g, '_') : 'Client';
+  const formattedDate = date ? date.replace(/[\/\s]/g, '-') : 'Date';
+  pdf.save(`Dharmar_Mahal_${formattedName}_${formattedDate}.pdf`);
 };
