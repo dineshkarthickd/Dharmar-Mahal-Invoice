@@ -51,6 +51,6 @@ export const generateInvoicePDF = async (elementRef, name, date) => {
 
   pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
   const formattedName = name ? name.replace(/\s+/g, '_') : 'Client';
-  const formattedDate = date ? date.replace(/[\/\s]/g, '-') : 'Date';
+  const formattedDate = date ? date.replace(/[/\s]/g, '-') : 'Date';
   pdf.save(`Dharmar_Mahal_${formattedName}_${formattedDate}.pdf`);
 };
