@@ -1,21 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
 
 :root {
-  /* Cinematic Sunset Palette */
-  --midnight-navy: #1a2b43;
-  --slate-blue: #355c7d;
-  --muted-purple: #6c5b7b;
-  --mauve-rose: #c06c84;
-  --coral-pink: #f67280;
+  /* Modern Professional Slate & Indigo Palette */
+  --midnight-navy: #0f172a;
+  --slate-blue: #1e293b;
+  --indigo-accent: #4f46e5;
+  --muted-purple: #475569;
+  --mauve-rose: #334155;
+  --coral-pink: #e11d48;
   
   /* Text & Surfaces */
-  --off-white: #fdfdfd;
-  --text-dark: #2d3436;
-  --text-muted: #636e72;
+  --off-white: #f8fafc;
+  --text-dark: #0f172a;
+  --text-muted: #64748b;
   
   /* Modern Shadows */
-  --shadow-premium: 0 20px 40px rgba(0, 0, 0, 0.08);
-  --shadow-glow: 0 0 25px rgba(246, 114, 128, 0.2);
+  --shadow-premium: 0 20px 40px -8px rgba(0, 0, 0, 0.3);
+  --shadow-glow: 0 0 15px rgba(79, 70, 229, 0.3);
 
   /* Fonts */
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
@@ -36,15 +37,8 @@ body {
   background-color: var(--midnight-navy);
   color: var(--text-dark);
   
-  /* Universal Elite Mesh Background */
-  background-image: 
-    radial-gradient(at 0% 0%, var(--slate-blue) 0, transparent 50%), 
-    radial-gradient(at 50% 0%, var(--mauve-rose) 0, transparent 50%), 
-    radial-gradient(at 100% 0%, var(--slate-blue) 0, transparent 50%), 
-    radial-gradient(at 0% 100%, var(--coral-pink) 0, transparent 50%), 
-    radial-gradient(at 50% 100%, var(--midnight-navy) 0, transparent 50%), 
-    radial-gradient(at 100% 100%, var(--mauve-rose) 0, transparent 50%);
-  background-size: 100% 100%;
+  /* Universal Professional Dark Gradient Background */
+  background: linear-gradient(135deg, #020617 0%, #0f172a 100%);
   background-attachment: fixed;
   min-height: 100vh;
 }

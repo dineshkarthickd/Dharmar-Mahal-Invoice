@@ -61,17 +61,16 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 30px;
-  max-width: 1400px;
+  max-width: 1050px;
   margin: 0 auto;
 }
 
 .form-section {
-  background: rgba(253, 253, 253, 0.95);
+  background: #ffffff;
   padding: 35px;
-  border-radius: 20px;
-  box-shadow: var(--shadow-premium);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e2e8f0;
 }
 
 .form-section h2 {
@@ -95,30 +94,29 @@
   display: block;
   margin-bottom: 8px;
   font-weight: 600;
-  color: var(--midnight-navy);
+  color: var(--muted-purple);
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  opacity: 0.8;
 }
 
 .form-group input {
   width: 100%;
   padding: 16px;
-  border: 1.5px solid #eee;
+  border: 1px solid #cbd5e1;
   border-radius: 12px;
   font-size: 15px;
-  transition: all 0.3s ease;
-  background-color: #fcfcfc;
+  transition: all 0.2s ease;
+  background-color: #ffffff;
   font-family: var(--font-sans);
   color: var(--text-dark);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
 }
 
 .form-group input:focus {
   outline: none;
-  border-color: var(--slate-blue);
-  background-color: white;
-  box-shadow: 0 10px 20px rgba(53, 92, 125, 0.05);
+  border-color: var(--indigo-accent);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
 }
 
 .services-section {
@@ -145,7 +143,7 @@
 
 .add-service-btn {
   padding: 12px 24px;
-  background: var(--midnight-navy);
+  background: var(--indigo-accent);
   color: white;
   border: none;
   border-radius: 12px;
@@ -154,14 +152,14 @@
   font-size: 13px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  box-shadow: 0 8px 16px rgba(26, 43, 67, 0.15);
-  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+  transition: all 0.2s ease;
 }
 
 .add-service-btn:hover {
-  background-color: var(--slate-blue);
-  box-shadow: 0 12px 24px rgba(26, 43, 67, 0.25);
-  transform: translateY(-2px);
+  background-color: var(--indigo-light);
+  box-shadow: 0 6px 8px -1px rgba(79, 70, 229, 0.3);
+  transform: translateY(-1px);
 }
 
 .service-field {
@@ -180,11 +178,19 @@
 .service-amount input {
   width: 100%;
   padding: 12px;
-  border: 2px solid #e1e8ed;
+  border: 1px solid #cbd5e1;
   border-radius: 8px;
   font-size: 14px;
-  transition: all 0.3s ease;
-  background: rgba(255, 255, 255, 0.9);
+  transition: all 0.2s ease;
+  background: #ffffff;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.service-description input:focus,
+.service-amount input:focus {
+  outline: none;
+  border-color: var(--indigo-accent);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
 }
 
 .remove-service-btn {
@@ -211,19 +217,19 @@
 }
 
 .total-section {
-  background: var(--midnight-navy);
-  padding: 30px;
-  border-radius: 16px;
-  margin-top: 30px;
+  background: var(--slate-blue);
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 20px;
   text-align: center;
   color: white;
-  box-shadow: 0 20px 40px rgba(26, 43, 67, 0.2);
+  box-shadow: 0 8px 12px -3px rgba(0, 0, 0, 0.1);
 }
 
 .total-section h3 {
   color: white;
-  margin-bottom: 8px;
-  font-size: 24px;
+  margin-bottom: 6px;
+  font-size: 18px;
   font-family: var(--font-serif);
   font-weight: 400;
   letter-spacing: 0.05em;
@@ -233,7 +239,7 @@
   font-style: italic;
   color: rgba(255, 255, 255, 0.9);
   font-weight: 500;
-  font-size: 14px;
+  font-size: 11px;
 }
 
 .preview-section {
@@ -241,12 +247,26 @@
   top: 20px;
 }
 
+.preview-scaler {
+  width: 100%;
+  height: calc(297mm * 0.64);
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
 .a4-page {
   width: 210mm;
   height: 297mm;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform-origin: top center;
+  transform: translateX(-50%) scale(0.64);
   background: white;
   padding: 0 20mm;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border: 1px solid #e2e8f0;
   font-family: 'Times New Roman', Times, serif;
   display: flex;
   flex-direction: column;
@@ -297,6 +317,11 @@
   flex: 1;
 }
 
+.services-preview table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
 .services-preview td {
   padding: 6px 4px;
   border-bottom: 1px dashed #ddd;
@@ -328,10 +353,16 @@
   font-weight: bold;
 }
 
+.signature-section {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  padding-right: 20px;
+}
+
 .signature-image {
   max-width: 250px;
   max-height: 100px;
-  margin-left: auto;
 }
 
 .footer-image {
@@ -344,7 +375,7 @@
 .generate-pdf-btn {
   width: 100%;
   padding: 18px;
-  background: var(--midnight-navy);
+  background: var(--indigo-accent);
   color: white;
   border: none;
   border-radius: 12px;
@@ -352,18 +383,19 @@
   font-size: 14px;
   letter-spacing: 0.1em;
   cursor: pointer;
-  box-shadow: 0 15px 30px rgba(26, 43, 67, 0.2);
+  box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.2);
   text-transform: uppercase;
   margin-top: 10px;
+  transition: all 0.2s ease;
 }
 
 .generate-pdf-btn:hover {
-  background-color: var(--slate-blue);
-  transform: translateY(-2px);
-  box-shadow: 0 20px 40px rgba(26, 43, 67, 0.3);
+  background-color: var(--indigo-light);
+  transform: translateY(-1px);
+  box-shadow: 0 15px 20px -3px rgba(79, 70, 229, 0.3);
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1060px) {
   .invoice-container {
     padding: 20px 10px;
   }
@@ -375,10 +407,19 @@
   .invoice-content {
     grid-template-columns: 1fr;
     gap: 30px;
+    max-width: 750px;
   }
   
   .preview-section {
     position: static;
+  }
+  
+  .preview-scaler {
+    height: calc(297mm * 0.82);
+  }
+
+  .a4-page {
+    transform: translateX(-50%) scale(0.82);
   }
 }
 
@@ -397,12 +438,12 @@
     flex-direction: column;
     text-align: center;
     gap: 15px;
-    margin-bottom: 30px;
-    background: linear-gradient(135deg, rgba(26, 43, 67, 0.95) 0%, rgba(53, 92, 125, 0.95) 100%);
-    padding: 40px 20px;
-    border-radius: 0 0 40px 40px;
-    margin: -40px -10px 30px -10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    margin-bottom: 20px;
+    background: transparent;
+    padding: 20px 10px;
+    border-radius: 0;
+    margin: 0;
+    box-shadow: none;
   }
 
   .invoice-header h1 {
@@ -413,15 +454,15 @@
   }
 
   .reset-btn {
-    background: rgba(231, 76, 60, 0.9); /* Solid red for extreme visibility */
+    background: var(--slate-blue);
     border: none;
     color: white;
-    font-size: 14px;
-    font-weight: 700;
-    padding: 14px 30px;
-    border-radius: 14px;
-    box-shadow: 0 8px 20px rgba(231, 76, 60, 0.4);
-    text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+    text-shadow: none;
   }
 
   .form-section {
@@ -439,28 +480,34 @@
 
   .remove-service-btn {
     width: 100%;
-    border-radius: 12px;
-    height: 48px;
+    border-radius: 8px;
+    height: 42px;
     margin-top: 5px;
+    background: transparent;
+    color: var(--coral-pink);
+    border: 1px solid var(--coral-pink);
+    box-shadow: none;
   }
 
   /* Smart Scale A4 Preview - Fixed and Centered */
   .preview-scaler {
-    width: 100vw;
-    margin-left: -10px; /* Offset container padding */
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    width: 100%;
+    margin-left: 0;
+    display: block;
+    position: relative;
     overflow: hidden;
-    height: 400px; /* Control height to prevent giant gaps */
+    height: 380px;
+    background: transparent;
   }
 
   .a4-page {
+    position: absolute;
+    top: 0;
+    left: 50%;
     transform-origin: top center;
-    flex-shrink: 0;
-    /* Mathematical scaling to fit typical phone widths (approx 90% of screen) */
-    transform: scale(0.42); 
-    margin: 0 auto;
+    /* Mathematical scaling to fit typical phone widths */
+    transform: translateX(-50%) scale(0.42); 
+    margin: 0;
     box-shadow: 0 15px 40px rgba(0,0,0,0.4);
   }
 }
@@ -471,7 +518,7 @@
   }
 
   .a4-page {
-    transform: scale(0.38); /* Fit smaller phones (360-390px) */
+    transform: translateX(-50%) scale(0.38); /* Fit smaller phones */
   }
 }
 
@@ -480,6 +527,6 @@
     height: 320px;
   }
   .a4-page {
-    transform: scale(0.32); /* Fit very small phones (320px) */
+    transform: translateX(-50%) scale(0.32); /* Fit very small phones */
   }
 }

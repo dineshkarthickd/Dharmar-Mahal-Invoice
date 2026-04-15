@@ -21,7 +21,7 @@ const InvoicePreview = ({ invoiceData, services, totalAmount, amountInWords }) =
     setIsGenerating(true);
     
     try {
-      await generateInvoicePDF(invoiceRef, invoiceData.clientName);
+      await generateInvoicePDF(invoiceRef, invoiceData.clientName, invoiceData.date);
     } catch (error) {
       console.error('PDF generation failed:', error);
       alert('Failed to generate PDF. Please try again.');
