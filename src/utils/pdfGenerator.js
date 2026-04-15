@@ -28,14 +28,35 @@ export const generateInvoicePDF = async (elementRef, name, date) => {
   const A4_WIDTH_PX = 794;
   const A4_HEIGHT_PX = 1123;
 
-  const canvas = await html2canvas(element, {
-    scale: 2, // Higher resolution
-    useCORS: true,
-    logging: false,
-    width: A4_WIDTH_PX,
-    height: A4_HEIGHT_PX,
-    windowWidth: A4_WIDTH_PX, // Force desktop-like rendering
-  });
+  // Store original styles to safely bypass canvas tracking bounds bugs
+  const originalTransform = element.style.transform;
+  const originalPosition = element.style.position;
+  const originalLeft = element.style.left;
+  const originalMargin = element.style.margin;
+
+  // Force actual unscaled DOM size synchronously (user won't see this paint)
+  element.style.transform = 'none';
+  element.style.position = 'static';
+  element.style.left = 'auto';
+  element.style.margin = '0';
+
+  let canvas;
+  try {
+    canvas = await html2canvas(element, {
+      scale: 2, // Higher resolution
+      useCORS: true,
+      logging: false,
+      width: A4_WIDTH_PX,
+      height: A4_HEIGHT_PX,
+      windowWidth: A4_WIDTH_PX, // Force desktop-like rendering
+    });
+  } finally {
+    // Restore original aesthetic responsive sizing immediately
+    element.style.transform = originalTransform;
+    element.style.position = originalPosition;
+    element.style.left = originalLeft;
+    element.style.margin = originalMargin;
+  }
 
   const imgData = canvas.toDataURL('image/png');
   
